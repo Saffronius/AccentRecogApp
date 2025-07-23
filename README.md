@@ -13,11 +13,12 @@ classification head for the provided accents.
 * Python 3.8+
 * `torch`
 * `torchaudio`
+* `flask` (for the optional web interface)
 
 Install the dependencies with:
 
 ```bash
-pip install torch torchaudio
+pip install torch torchaudio flask
 ```
 
 ## Training
@@ -51,6 +52,19 @@ python -m accentrecog.predict model.pt path/to/test.wav
 ```
 
 The script prints the predicted accent label.
+
+## Web Interface
+
+You can start a simple web frontend to upload audio files and get
+predictions using `Flask`:
+
+```bash
+python webapp.py
+```
+
+By default the application looks for a model file named `accent_model.pt` in the
+current directory. Set the `MODEL_PATH` environment variable to point to a
+different model if needed.
 
 ## Project Ideas
 
